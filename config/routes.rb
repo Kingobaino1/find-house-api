@@ -5,12 +5,10 @@ Rails.application.routes.draw do
       resources :houses
     end
   end
-
-  namespace :api do
-    namespace :v1 do
-      resources :users do
-        resources :favourites
-      end
-    end
+  resources :users, only: [:create] do
+    resources :favourites
   end
+  post "/login", to: "session#login"
+  get "/auto_login", to: "session#auto_login"
+  get "/user_is_authed", to: "session#user_is_authed"
 end
