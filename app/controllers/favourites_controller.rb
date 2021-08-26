@@ -1,4 +1,5 @@
 class FavouritesController < ApplicationController
+    before_action :authenticate_and_set_user
   def index
     @favourites = current_user.favourites.all
   end

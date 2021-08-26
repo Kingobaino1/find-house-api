@@ -4,7 +4,5 @@ Rails.application.routes.draw do
   resources :users, only: [:create] do
     resources :favourites
   end
-  post "/login", to: "sessions#login"
-  get "/auto_login", to: "sessions#auto_login"
-  get "/user_is_authed", to: "sessions#user_is_authed"
+ api_guard_routes for: 'users'
 end

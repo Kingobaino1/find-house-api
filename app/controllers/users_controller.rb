@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
+  before_action :authenticate_and_set_user, except: :create
   def create
     @user = User.new(user_params)
     if @user.save
-      payload = {user_id: @user.id}
-      token = encode_token(payload)
-      render json: {user: @user, jwt: token}
+      auth_token = AuthenticateUser.new(@user.email, @user.password).call
+      json_response(auth_token)
     else
       render json: {errors: @user.errors.full_messages, status: :not_acceptable}
     end
@@ -13,6 +13,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:name, :email, :password)
+    params.permit(:name, :email, :password, :password_confirmation)
   end
 end
