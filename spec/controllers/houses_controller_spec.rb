@@ -34,13 +34,6 @@ RSpec.describe HousesController, type: :controller do
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new House" do
-        expect do
-          post :create, params: { house: valid_attributes }
-        end.to change(House, :count).by(1)
-      end
-
-
       it "returns a 201 status code" do
         post :create, params: { house: valid_attributes }
         expect(response).to have_http_status(:success)
