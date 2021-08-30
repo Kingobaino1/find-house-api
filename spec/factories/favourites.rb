@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :favourite do
-    name { "MyString" }
+    name { 'MyString' }
     user { nil }
     house { nil }
   end

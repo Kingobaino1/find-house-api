@@ -6,7 +6,7 @@ class UsersController < ApplicationController
       auth_token = AuthenticateUser.new(@user.email, @user.password).call
       json_response(auth_token)
     else
-      render json: {errors: @user.errors.full_messages, status: :not_acceptable}
+      render json: { errors: @user.errors.full_messages, status: :not_acceptable }
     end
   end
 

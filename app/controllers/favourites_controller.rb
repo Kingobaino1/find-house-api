@@ -1,5 +1,5 @@
 class FavouritesController < ApplicationController
-    before_action :authenticate_and_set_user
+  before_action :authenticate_and_set_user
   def index
     @favourites = current_user.favourites.all
     render json: @favourites
@@ -7,9 +7,7 @@ class FavouritesController < ApplicationController
 
   def create
     @favourite = current_user.favourites.build(favourite_params)
-    if @favourite.save
-      render json: @favourite
-    end
+    render json: @favourite if @favourite.save
   end
 
   private

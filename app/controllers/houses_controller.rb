@@ -3,13 +3,13 @@ class HousesController < ApplicationController
     @houses = House.all
     render json: @houses
   end
-  
+
   def create
     @house = House.new(house_params)
     if @house.save
       render json: @house
     else
-      render json: {error: 'House not created!'}
+      render json: { error: 'House not created!' }
     end
   end
 
