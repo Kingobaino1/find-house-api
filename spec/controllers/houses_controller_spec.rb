@@ -42,15 +42,14 @@ RSpec.describe HousesController, type: :controller do
   end
 
   context 'with invalid params' do
-      it 'does not create a new  House' do
-        expect do
-          post :create, params: { house: invalid_attributes }
-        end.to change(House, :count).by(0)
-      end
-
-      it 'returns a 200 status code' do
+    it 'does not create a new  House' do
+      expect do
         post :create, params: { house: invalid_attributes }
-        expect(response).to have_http_status(:ok)
-      end
+      end.to change(House, :count).by(0)
+    end
+    it 'returns a 200 status code' do
+      post :create, params: { house: invalid_attributes }
+      expect(response).to have_http_status(:ok)
+    end
   end
 end
