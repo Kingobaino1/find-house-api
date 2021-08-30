@@ -2,6 +2,7 @@ class FavouritesController < ApplicationController
     before_action :authenticate_and_set_user
   def index
     @favourites = current_user.favourites.all
+    render json: @favourites
   end
 
   def create
@@ -14,6 +15,6 @@ class FavouritesController < ApplicationController
   private
 
   def favourite_params
-    params.permit(:name, :house_id)
+    params.permit(:house_id)
   end
 end

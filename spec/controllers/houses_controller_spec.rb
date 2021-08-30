@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe HousesController, type: :controller do
   let(:valid_attributes) do
     {
+      price: 200.50,
       details: 'This house the maximum security you can think of',
-      price: 200,
       about: '2Bed room flat',
-      owner: 'Odogwu',
-      image: 'This is an avatar'
+      image: 'This is an avatar',
+      owner: 'Odogwu'
     }
   end
 
@@ -34,11 +34,11 @@ RSpec.describe HousesController, type: :controller do
 
   describe "POST #create" do
     context "with valid params" do
-      # it "creates a new House" do
-      #   expect do
-      #     post :create, params: { house: valid_attributes }
-      #   end.to change(House, :count).by(1)
-      # end
+      it "creates a new House" do
+        expect do
+          post :create, params: { house: valid_attributes }
+        end.to change(House, :count).by(1)
+      end
 
 
       it "returns a 201 status code" do
