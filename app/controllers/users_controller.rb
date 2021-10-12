@@ -2,9 +2,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      payload = {user_id: @user.id}
+      payload = { user_id: @user.id }
       token = encode_token(payload)
-      render json: {user: @user, jwt: token}, status: :created
+      render json: { user: @user, jwt: token }, status: :created
     else
       render json: { errors: 'Sign up failed', status: :not_acceptable }
     end
@@ -13,9 +13,9 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
-      payload = {user_id: @user.id}
+      payload = { user_id: @user.id }
       @token = encode_token(payload)
-      render json: {user: @user, token: @token}
+      render json: { user: @user, token: @token }
     else
       render json: {error: 'Invalid email or password'}, status: :unauthorized
     end
