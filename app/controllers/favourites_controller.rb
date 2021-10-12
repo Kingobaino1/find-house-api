@@ -31,11 +31,12 @@ class FavouritesController < ApplicationController
 
   def decoded_token
     return unless auth_header
-      token = auth_header.split(' ')[1]
-      begin
-        JWT.decode(token, jwt_key, true, algorithm: 'HS256')
-      rescue JWT::DecodeError
-        []
-      end
+
+    token = auth_header.split(' ')[1]
+    begin
+      JWT.decode(token, jwt_key, true, algorithm: 'HS256')
+    rescue JWT::DecodeError
+      []
+    end
   end
 end
