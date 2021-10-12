@@ -28,6 +28,6 @@ class UsersController < ApplicationController
   end
 
   def encode_token(payload)
-    JWT.encode(payload, Rails.application.secrets.secret_key_base[0])
+    JWT.encode(payload, jwt_key)
   end
 end

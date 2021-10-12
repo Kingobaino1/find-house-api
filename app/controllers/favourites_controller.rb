@@ -33,7 +33,7 @@ class FavouritesController < ApplicationController
     if auth_header
       token = auth_header.split(' ')[1]
       begin
-        JWT.decode(token, Rails.application.secrets.secret_key_base[0], true, algorithm: 'HS256')
+        JWT.decode(token, jwt_key, true, algorithm: 'HS256')
       rescue JWT::DecodeError
         []
       end
