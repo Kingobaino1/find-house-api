@@ -3,6 +3,5 @@ class User < ApplicationRecord
   has_many :favourites, dependent: :destroy
   has_many :houses, through: :favourites
 
-  validates :email, :password_digest, presence: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :email, :password_digest, presence: true, uniqueness: true
 end
