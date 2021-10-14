@@ -5,8 +5,7 @@ class UsersController < ApplicationController
       payload = { user_id: @user.id }
       token = encode_token(payload)
       render json: { user: @user, jwt: token }, status: :created
-    elsif
-      user = User.find_by(email: params[:email])
+    elsif User.find_by(email: params[:email])
       render json: { errors: 'Account already exists', status: :not_acceptable }
     else
       render json: { errors: 'Password does not match with password confirmation', status: :not_acceptable }
@@ -20,7 +19,7 @@ class UsersController < ApplicationController
       @token = encode_token(payload)
       render json: { user: @user, token: @token }
     else
-      render json: { error: 'Invalid email or password',  status: :unauthorized }
+      render json: { error: 'Invalid email or password', status: :unauthorized }
     end
   end
 
