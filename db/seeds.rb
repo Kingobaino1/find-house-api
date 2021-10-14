@@ -9,7 +9,7 @@
     price: 309.38,
     details: 'Quos consequatur voluptatibus dolorem.',
     about: 'omnis',
-    image: 'https://unsplash.com/photos/Hf1rAKkfMAg',
+    image: 'https://images.unsplash.com/photo-1526283892969-da89060cece4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80',
     owner: 'Unsplash cars'
   )
 
@@ -17,7 +17,7 @@
     price: 600.85,
     details: 'Quod ducimus minima animi.',
     about: 'maiores',
-    image: 'https://unsplash.com/photos/aIDkOU7eGgo',
+    image: 'https://images.unsplash.com/photo-1526284059721-5519814a2274?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80',
     owner: 'decoraid'
   )
 
