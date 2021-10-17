@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if @user &.authenticate(params[:password])
       payload = { user_id: @user.id }
       @token = encode_token(payload)
-      render json: { user: @user, token: @token }
+      render json: { user: @user, jwt: @token }
     else
       render json: { error: 'Invalid email or password', status: :unauthorized }
     end
