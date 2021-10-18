@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     if @user.save
       payload = { user_id: @user.id }
       token = encode_token(payload)
-      render json: { user: @user, jwt: token, status: created }
+      render json: { user: @user, jwt: token, status: account_created }
     elsif User.find_by(email: params[:email])
       render json: { errors: 'Account already exists', status: :not_acceptable }
     else
