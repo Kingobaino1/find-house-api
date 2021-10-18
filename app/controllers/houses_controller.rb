@@ -15,7 +15,7 @@ class HousesController < ApplicationController
 
   def show
     @house = House.find(params[:id])
-    render json: @house
+    render json: { car: @house }
   end
 
   private
